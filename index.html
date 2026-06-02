@@ -1,173 +1,677 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GSAP Scroll Animation</title>
+https://demo.lathiyasolutions.com/wp-admin
+Demolsweb
+)eLd4&OjNC$^hkkzm$F0A6sC
 
-<!-- Google Font (Correct Way) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&display=swap" rel="stylesheet">
+https://demo2.themelexus.com/medilazar/home-11/
 
-<style>
+Header Css
 
-body {
-  margin: 0;
-  background: #111;
-  color: white;
-  font-family: 'Unbounded', sans-serif;
-  overflow-x: hidden;
-}
-
-header {
-  padding: 1.5rem;
-  display: flex;
-  border-bottom: 2px solid grey;
-}
-
-nav {
-  margin-left: auto;
-}
-
-ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-}
-
-li + li {
-  padding-left: 1rem;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-.hero {
-  min-height: 100vh;
-  padding: 2rem;
-}
-
-h1 {
-  font-size: clamp(40px, 8vw, 120px);
-  text-transform: uppercase;
-  text-align: center;
-  position: relative;
-}
-
-.images {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-img {
-  width: 100%;
-  height: 60vh;
-  object-fit: cover;
-}
-
-.spacer {
-  height: 100vh;
-}
-
-.clamp {
-  position: relative;
-}
-
-.clamp svg {
-  position: absolute;
-  width: 110%;
-  top: 50%;
-  left: -5%;
-  transform: translateY(-50%) rotate(2deg);
-}
-
-.logo svg {
-  width: 150px;
-  opacity: 0;
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">
-    <svg viewBox="0 0 370 100.34">
-      <circle cx="50" cy="50" r="40" fill="white" />
-    </svg>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="#">About</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="heading">
-    <div class="pin">
-      <h1>
-        <span class="clamp">
-          Clamp
-          <svg viewBox="0 0 842.14 500">
-            <path class="draw"
-              d="M336.2,130.05C261.69,118,16.52,122,20.65,244.29c4.17,123,484.3,299.8,734.57,108.37,244-186.65-337.91-311-546.54-268.47"
-              fill="none"
-              stroke="#8486aa"
-              stroke-width="8" />
-          </svg>
-        </span>
-        your triggers
-      </h1>
-    </div>
-  </div>
-
-  <div class="images">
-    <img src="https://images.unsplash.com/photo-1530569673472-307dc017a82d?q=80&w=400" />
-    <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?q=80&w=400" />
-    <img src="https://images.unsplash.com/photo-1551376347-075b0121a65b?q=80&w=400" />
-    <img src="https://images.unsplash.com/photo-1500817487388-039e623edc21?q=80&w=400" />
-  </div>
-</section>
-
-<section class="spacer"></section>
-
-<!-- GSAP -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-
-<script>
-
-gsap.registerPlugin(ScrollTrigger);
-
-/* SVG draw animation (free version) */
-gsap.from(".draw", {
-  strokeDasharray: 1000,
-  strokeDashoffset: 1000,
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: ".heading",
-    start: "top center",
-    scrub: true,
-    pin: ".pin",
-    pinSpacing: false,
-    markers: true
+.main_header{
+width:100%;position:absolute;transition:.7s !important;
+	top:0;left:0; z-index:99;}
+.swiper-slide-contents{padding-top:100px; !important}
+.fixed {position: fixed;top: 0;
+width: 100%;background-color:#262626;animation: slideDown 0.80s ease-out;}
+@keyframes slideDown {
+  from {
+    transform: translateY(-200px);
   }
+  to {
+    transform: translateY(0);
+  }
+}
+
+Change Logo and URL in login page
+function my_login_logo_one() { 
+	?> 
+	<style type="text/css"> 
+		.login h1 a{
+		 background-image: url(https://www.asthicare.com/wp-content/uploads/2023/11/asthicare_logo.png)!important;
+		background-repeat:no-repeat !important;
+		background-size:250px !important;
+
+		width:300px !important;
+		padding-bottom:0 !important;
+		
+		height: 115px !important;
+	} 
+	</style>
+	 <?php 
+} add_action( 'login_enqueue_scripts', 'my_login_logo_one' );
+
+function change_login_page_url( $url ) {
+    $link_url='https://asthicare.com';
+    return $link_url;
+}
+add_filter( 'login_headerurl', 'change_login_page_url' );
+function change_login_page_title( $title ){
+	$login_title = 'Asthicare';
+	return $login_title;
+}
+add_filter('login_headertitle','change_login_page_title');
+remove_action( 'wp_head', 'wp_generator' );
+
+
+
+https://www.anyrec.io/image-upscaler
+
+aa tool thi koi blur image hoi ae clear thai jai aete aamne book mark kari deje
+
+
+
+Header Fix
+
+
+function Header_fixed() {
+	?>
+		<script>
+						jQuery(document).ready(function(){
+
+							jQuery(window).scroll(function(){
+			  var sticky = jQuery('.sticky'),
+				  scroll = jQuery(window).scrollTop();
+
+			  if (scroll >= 100) sticky.addClass('fixed');
+			  else sticky.removeClass('fixed');
+			});
+
+						});
+			
+		</script>
+	<?php
+}
+
+add_action( 'wp_footer', 'Header_fixed',100);
+
+
+
+
+
+
+function product_summary() {
+    echo '<h2>Test!</h2>';
+}
+
+add_action( 'woocommerce_after_single_product_summary', 'product_summary', 11);
+
+
+
+
+
+
+jQuery(document).ready(function(){
+      //add slick slider on home page banner
+      jQuery('.ls_deliveryslider>.elementor-element-populated').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        //arrows: true,
+        autoplay: true,
+  		  autoplaySpeed: 3000,
+        infinite: true,  
+        responsive: [
+        {
+          breakpoint: 1441,
+          settings: {
+            slidesToShow: 1,
+          }
+        }
+      ]
+    });  
 });
 
-/* Fade in logo */
-gsap.to(".logo svg", {
-  opacity: 1,
-  duration: 1
+add_action( 'wp_enqueue_scripts', 'ls_wp_enqueue_scripts' );
+function ls_wp_enqueue_scripts() {
+    wp_enqueue_style( 'ls-child-style', get_stylesheet_directory_uri() . '/style.css', false, '1.0', 'all' );
+
+   wp_enqueue_script( 'ls_slick_js', get_stylesheet_directory_uri() . '/slick/slick.min.js', array(), '1.0.0', true );
+   wp_enqueue_style( 'ls_slick_css',get_stylesheet_directory_uri() . '/slick/slick.css' );
+    wp_enqueue_style( 'ls_slick_min_css',get_stylesheet_directory_uri() . '/slick/slick.min.css' );
+   wp_enqueue_style( 'ls_slick_theme_css',get_stylesheet_directory_uri() . '/slick/slick-theme.css' );
+    
+   //ls custom js file
+    wp_enqueue_script( 'ls_custom_js', get_stylesheet_directory_uri() . '/js/ls_custom.js', array('ls_slick_js'), '1.7.4', true );
+    
+
+
+   // wp_enqueue_style( 'ls_slick_lightbox_css', get_stylesheet_directory_uri() . '/slick/slick-lightbox.css', array('ls_slick_css'), '1.7.4', true );
+}
+
+
+
+
+
+//2 column section set 1 column container and 2 fullwidth used this css
+margin: 0 0 0 max(2cqw,(100vw - 1340px) / 2);
+margin-left: calc((100% - 1320px) / 2);
+padding-left: calc(calc(100vw - calc(1320px))/2)!important;
+
+
+
+
+sidebar ma post tittle ma name pachhi dots lavava mate Use this code
+
+jQuery(document).ready(function($)
+ {
+    var maxCharacters = 20; // Maximum number of characters
+    var ellipsis = '...'; // Ellipsis character
+
+    $('.ls_recent_post .wp-block-latest-posts__post-title').each(function() {
+        var text = $(this).text();
+        if (text.length > maxCharacters) {
+            text = text.substring(0, maxCharacters) + ellipsis;
+            $(this).text(text);
+        }
+    });
 });
 
-</script>
 
-</body>
-</html>
+
+How to Create Shortcode
+
+[sidebar_dynamic_pages_list]
+
+add_shortcode('sidebar_dynamic_pages_list','fn_sidebar_dynamic_pages_list');
+function fn_sidebar_dynamic_pages_list()
+{
+
+if(is_page('tamarac-car-accident-lawyer'))
+{
+ob_start();
+?>
+<h3>Pompano Beach Car Accident Lawyer</h3>
+<ul>
+<li><a>a herf="https://kurzmanlawgroup.com/hollywood-truck-accident-lawyer/">Truck Accident Attorney Hollywood</a></li>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+
+</ul>
+<?php
+
+return ob_get_clean();
+
+if(is_page('tamarac-car-accident-lawyer'))
+{
+ob_start();
+?>
+<h3>Pompano Beach Car Accident Lawyer</h3>
+<ul>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+<li><a>a herf=""></a></li>
+
+</ul>
+<?php
+
+return get_ob_clean();
+}
+
+
+
+}
+
+
+//mesonary galley css
+.ls_gallery img{width: 100%;}
+@media (min-width: 1025px) {
+    .ls_gallery #gallery-1 {column-count: 4;column-gap: 0px;}
+}
+@media (min-width: 481px) and (max-width:1024px) {
+    .ls_gallery #gallery-1 {column-count: 3;column-gap: 0px;}  
+}
+@media (max-width: 480px) {
+    .ls_gallery #gallery-1 {column-count: 2;column-gap: 0px;}  
+}
+
+
+
+
+
+
+Acf Mate 
+
+<?php
+			// Get the ACF field value
+			$field_value = get_field('Main_title');
+			$field_value2 = get_field("Main_image");
+			$field_value3 = get_field("opacity");
+
+				?>
+					<div class="titlee"> <?php echo  esc_html($field_value); ?> </div>
+					<div class="titlee"> <img src="<?php echo  esc_html($field_value2 ['url']);?>" alt=""> </div>
+					<div class="titlee"> <?php echo  esc_html($field_value3); ?> </div>
+				<?php
+
+			?>
+
+
+
+
+
+//koi b site open na thati hoi ip block karel hoi tena mate 
+In C:\Windows\System32\drivers\etc 
+
+Example : 156.67.104.120 netzeroby2070.com https://www.netzeroby2070.com
+
+
+
+
+
+@font-face {
+    font-family: 'Recoleta DEMO';
+    src: url('/wp-content/uploads/2024/11/Recoleta-Medium.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Averta DEMO';
+    src: url('/wp-content/themes/brandonb-child/fonts/AvertaDemoPECuttedDemo-Regular.woff2') format('woff2'),
+        url('/wp-content/themes/brandonb-child/fonts/AvertaDemoPECuttedDemo-Regular.woff') format('woff');
+    font-display: swap;
+}
+body, div, p{
+	font-family: "Averta DEMO", Arial, sans-serif !important;
+}
+body h1, body h2, body h3, body h4, body h5, body h6{font-family: "Recoleta DEMO", Arial, sans-serif !important;}
+
+
+
+
+Skype Login
+punjan@lathiyasolutions.com	
+mBDL6%MCdlGgEGoK
+
+
+
+
+Useful Links 
+
+
+https://wp-kama.com/handbook/cheatsheet
+
+
+Theme with connect a plugin use this platform
+Class-tgm-plugin-activation.php
+
+Find this method
+public function after( $title = '' ) {
+    if ( empty( $title ) ) {
+        $title = esc_html( $this->plugin_names[ $this->i ] );
+    }
+    parent::after( $title );
+
+    $this->i++;
+}
+
+
+Replace It With This
+public function after( $title = '' ) {
+
+    if ( empty( $title ) ) {
+        $title = esc_html( $this->plugin_names[ $this->i ] );
+    }
+
+    // Prevent WordPress 6.5+ argument error
+    $this->i++;
+}
+
+
+
+
+Feature image show in single blog post banner (not using elementor pro)
+
+add_action('wp_head', function () {
+    if (is_single() && get_post_type() === 'post' && has_post_thumbnail()) {
+        $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+        if ($thumb_url) {
+            ?>
+            <style>
+                .ast-single-entry-banner[data-post-type="post"][data-banner-layout="layout-2"] {
+                    background-image: linear-gradient(to right, rgba(18,18,18,0.57), rgba(18,18,18,0.57)), url('<?php echo esc_url($thumb_url); ?>');
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: cover;
+                    background-attachment: scroll;
+                }
+            </style>
+            <?php
+        }
+    }
+});
+
++and- icon add in add to cart button
+
+<?php
+// Replace default quantity input with custom plus/minus buttons
+add_filter( 'woocommerce_quantity_input_args', 'ls_custom_quantity_input_args', 10, 2 );
+function ls_custom_quantity_input_args( $args, $product ) {
+    $args['input_value'] = isset( $_POST['quantity'] ) ? wc_stock_amount( wp_unslash( $_POST['quantity'] ) ) : 1; // default value
+    $args['min_value']   = 1; // min qty
+    $args['max_value']   = $product->get_max_purchase_quantity(); // max stock limit
+    $args['step']        = 1; // step
+    return $args;
+}
+
+add_action( 'woocommerce_after_quantity_input_field', 'ls_add_quantity_plus_button' );
+function ls_add_quantity_plus_button() {
+    echo '<button type="button" class="plus">+</button>';
+}
+
+add_action( 'woocommerce_before_quantity_input_field', 'ls_add_quantity_minus_button' );
+function ls_add_quantity_minus_button() {
+    echo '<button type="button" class="minus">-</button>';
+}
+
+
+
+add_action( 'wp_footer', 'ls_quantity_buttons_script' );
+function ls_quantity_buttons_script() {
+    if ( ! is_product() ) return; // only load on single product
+
+    ?>
+    <script>
+    jQuery(document).ready(function($){
+        $('form.cart').on('click', 'button.plus, button.minus', function() {
+            var qty = $(this).closest('form.cart').find('.qty');
+            var val = parseFloat(qty.val());
+            var max = parseFloat(qty.attr('max'));
+            var min = parseFloat(qty.attr('min'));
+            var step = parseFloat(qty.attr('step'));
+
+            if ($(this).hasClass('plus')) {
+                if (!max || val < max) qty.val(val + step).change();
+            } else {
+                if (val > min) qty.val(val - step).change();
+            }
+        });
+    });
+    </script>
+    <?php
+}
+
+
+
+
+/* Quantity wrapper */
+form.cart .quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Plus / Minus Buttons */
+form.cart .quantity button.minus,
+form.cart .quantity button.plus {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 0; /* square shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+form.cart .quantity button.minus:hover,
+form.cart .quantity button.plus:hover {
+    background: #e2e2e2;
+}
+
+/* Quantity Input Field */
+form.cart .quantity input.qty {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+    font-size: 16px;
+    border-radius: 0; /* square shape */
+    margin: 0;
+    -moz-appearance: textfield; /* Firefox hide arrows */
+}
+
+/* Remove default spinners (Chrome, Safari, Edge) */
+form.cart .quantity input.qty::-webkit-outer-spin-button,
+form.cart .quantity input.qty::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Align all three boxes */
+form.cart .quantity button.minus {
+    border-right: none;
+}
+form.cart .quantity button.plus {
+    border-left: none;
+}
+
+
+
+
+
+// Load intl-tel-input library
+
+add_action( 'wp_enqueue_scripts', function () {
+
+    if ( is_user_logged_in() ) return;
+
+    wp_enqueue_style(
+        'intl-tel-input-css',
+        'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.3.3/css/intlTelInput.css',
+        [],
+        '18.3.3'
+    );
+
+    wp_enqueue_script(
+        'intl-tel-input-js',
+        'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.3.3/js/intlTelInput.js',
+        [],
+        '18.3.3',
+        true
+    );
+
+});
+
+
+
+
+// Continue smooth scrolling in carousel widget
+
+
+/* === SEAMLESS INFINITE MARQUEE === */
+.ls_slider .swiper {
+    overflow: hidden;
+}
+
+.ls_slider .swiper-wrapper {
+    display: flex;
+    width: max-content;
+    animation: ls-marquee 100s linear infinite;
+}
+
+/* Adjust speed here (40s = slower) */
+@keyframes ls-marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Prevent resize issues */
+.ls_slider .swiper-slide {
+    flex-shrink: 0;
+}
+
+/* Optional: pause on hover */
+.ls_slider:hover .swiper-wrapper {
+    animation-play-state: paused;
+}
+
+
+
+
+
+
+
+// Smooth scrolling in Pages
+
+function ls_lenis_constant_smooth_scroll() {
+
+    if ( defined('ELEMENTOR_VERSION') && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+        return;
+    }
+
+    wp_enqueue_script(
+        'lenis',
+        'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js',
+        [],
+        '1.0.42',
+        true
+    );
+
+    wp_add_inline_script(
+        'lenis',
+        "
+        document.addEventListener('DOMContentLoaded', function () {
+
+
+				const lenis = new Lenis({
+				  lerp: 0.05, // Lower value for a slower, smoother scroll (default is 0.1)
+				  wheelMultiplier: 0.7, // Adjust mouse wheel sensitivity (default is 1)
+				  duration: 0.7, // Duration of scroll animation (only used if lerp is undefined)
+				  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing function
+				  // ... other options
+				});
+
+				lenis.on('scroll', (e) => {
+				  // console.log(e);
+				});
+
+				function raf(time) {
+				  lenis.raf(time);
+				  requestAnimationFrame(raf);
+				}
+
+				requestAnimationFrame(raf);
+
+        });
+        "
+    );
+}
+add_action('wp_enqueue_scripts', 'ls_lenis_constant_smooth_scroll');
+
+
+
+CSS
+
+html, body {
+    height: 100%;
+}
+
+.mf-cursor {
+    pointer-events: none;
+    will-change: transform;
+}
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+
+
+
+
+
+// Smooth scrolling in Pages
+
+function ls_cursor_ring_effect() {
+
+    // Disable inside Elementor editor
+    if ( defined('ELEMENTOR_VERSION') && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+        return;
+    }
+
+    /* Style handle */
+    wp_register_style('ls-cursor-ring-style', false);
+    wp_enqueue_style('ls-cursor-ring-style');
+
+    wp_add_inline_style(
+        'ls-cursor-ring-style',
+        '
+        .ls-cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 32px;
+            height: 32px;
+            border: 2px solid #ff014f;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease-out;
+            z-index: 999999;
+        }
+        '
+    );
+
+    /* Script handle */
+    wp_register_script('ls-cursor-ring-script', '', [], null, true);
+    wp_enqueue_script('ls-cursor-ring-script');
+
+    wp_add_inline_script(
+        'ls-cursor-ring-script',
+        '
+        document.addEventListener("DOMContentLoaded", function () {
+
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+            if (window.innerWidth < 768) return;
+
+            const ring = document.createElement("div");
+            ring.className = "ls-cursor-ring";
+            document.body.appendChild(ring);
+
+            document.addEventListener("mousemove", function (e) {
+                ring.style.left = e.clientX + "px";
+                ring.style.top = e.clientY + "px";
+            });
+
+        });
+        '
+    );
+}
+add_action("wp_enqueue_scripts", "ls_cursor_ring_effect");
+
+
+
+
+
+// remove strong password strength meter form myaccount page
+
+// Remove password strength meter JS
+add_action( 'wp_enqueue_scripts', function() {
+    wp_dequeue_script( 'wc-password-strength-meter' );
+}, 100 );
+
