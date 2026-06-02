@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSAP Scroll Animation</title>
+
+<!-- Google Font (Correct Way) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: 'Unbounded', sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 1.5rem;
+  display: flex;
+  border-bottom: 2px solid grey;
+}
+
+nav {
+  margin-left: auto;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+li + li {
+  padding-left: 1rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: clamp(40px, 8vw, 120px);
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+}
+
+.spacer {
+  height: 100vh;
+}
+
+.clamp {
+  position: relative;
+}
+
+.clamp svg {
+  position: absolute;
+  width: 110%;
+  top: 50%;
+  left: -5%;
+  transform: translateY(-50%) rotate(2deg);
+}
+
+.logo svg {
+  width: 150px;
+  opacity: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <svg viewBox="0 0 370 100.34">
+      <circle cx="50" cy="50" r="40" fill="white" />
+    </svg>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="heading">
+    <div class="pin">
+      <h1>
+        <span class="clamp">
+          Clamp
+          <svg viewBox="0 0 842.14 500">
+            <path class="draw"
+              d="M336.2,130.05C261.69,118,16.52,122,20.65,244.29c4.17,123,484.3,299.8,734.57,108.37,244-186.65-337.91-311-546.54-268.47"
+              fill="none"
+              stroke="#8486aa"
+              stroke-width="8" />
+          </svg>
+        </span>
+        your triggers
+      </h1>
+    </div>
+  </div>
+
+  <div class="images">
+    <img src="https://images.unsplash.com/photo-1530569673472-307dc017a82d?q=80&w=400" />
+    <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?q=80&w=400" />
+    <img src="https://images.unsplash.com/photo-1551376347-075b0121a65b?q=80&w=400" />
+    <img src="https://images.unsplash.com/photo-1500817487388-039e623edc21?q=80&w=400" />
+  </div>
+</section>
+
+<section class="spacer"></section>
+
+<!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* SVG draw animation (free version) */
+gsap.from(".draw", {
+  strokeDasharray: 1000,
+  strokeDashoffset: 1000,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".heading",
+    start: "top center",
+    scrub: true,
+    pin: ".pin",
+    pinSpacing: false,
+    markers: true
+  }
+});
+
+/* Fade in logo */
+gsap.to(".logo svg", {
+  opacity: 1,
+  duration: 1
+});
+
+</script>
+
+</body>
+</html>
